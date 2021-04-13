@@ -1,0 +1,20 @@
+ALGORITHM sort_cards
+VAR
+    val,i,j,k:INTEGER;
+    tab[]:ARRAY_OF INTEGER := [10];
+BEGIN
+    FOR i FROM 0 TO (tab.length)-1 STEP 1 DO
+        Read(val);
+        j:= 0;
+        //  find the index where the new value will be insert 
+        WHILE (j<i AND val>tab[j])
+            j++;
+        END_WHILE
+        
+        //insert the new value
+        FOR k FROM i DOWN_TO j STEP 1 DO
+            tab[k]:= tab[k-1];
+        END_FOR
+        tab[j]:= val;
+    END_FOR
+END
